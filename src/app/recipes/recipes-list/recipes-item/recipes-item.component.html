@@ -1,0 +1,16 @@
+<a (click)="selectRecipe()"
+href="#"
+class="list-group-item clearfix">
+<div class="pull-left">
+  <h3 class="list-group-item-heading">{{rec.name}}</h3>
+  <p class="list-group-item-text"> {{rec.descriptions}}</p>
+</div>
+<span class="pull-right">
+  <img
+
+  [src]="rec.imagePath"
+  alt="{{rec.name}}"
+   class="img-responsive img-circle"
+   style="max-height: 50px;">
+</span>
+</a>

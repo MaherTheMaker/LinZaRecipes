@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'LinZaRecipes';
+  showRecipes:boolean=true;
+currentpage:string='recipes';
+  /**
+   * ShowRecOrShop
+isRec:boolean   */
+  public   onNavigate(page:string) {
+  this.currentpage=page;
+  }
+
+
 }
