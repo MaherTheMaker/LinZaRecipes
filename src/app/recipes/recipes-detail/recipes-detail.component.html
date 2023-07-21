@@ -1,4 +1,9 @@
-
+<!--<app-recipes-detail-->
+<!--  *ngIf="selectedRecipe;else notSelected"-->
+<!--  [recipe]="selectedRecipe"></app-recipes-detail>-->
+<!--<ng-template #notSelected>-->
+<!--  <h2>Please select a Recipe</h2>-->
+<!--</ng-template>-->
   <div class="row">
     <div class="col-xs-12">
         <img   [src]="recipe.imagePath"
@@ -20,8 +25,8 @@
             </button>
             <ul class="dropdown-menu">
                 <li><a style="cursor: pointer;" (click)="addToSL()">to  Shopping list</a></li>
-                <li><a href="#"> Edit Recipe</a></li>
-                <li><a href="#"> Delete Recipe</a></li>
+                <li><a routerLink="edit" style="cursor: pointer"> Edit Recipe</a></li>
+                <li><a style="cursor: pointer"> Delete Recipe</a></li>
 
             </ul>
 
