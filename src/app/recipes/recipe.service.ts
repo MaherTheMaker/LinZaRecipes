@@ -1,0 +1,38 @@
+import { EventEmitter, Injectable } from '@angular/core';
+import { Recipe } from './recipe.model';
+import { Ingredient } from '../shared/ingredient.model';
+import { ShoppingListService } from '../shopping-list/shopping-list.service';
+
+@Injectable()
+export class RecipeService {
+
+  recipeSelected=new EventEmitter<Recipe>();
+ private recipes : Recipe[] =[
+    new Recipe("Buger", "The best Burger in Madrid",
+    'https://th.bing.com/th/id/OIP.Xpa7p1XJIYLs4HX5jjkHmwHaGJ?pid=ImgDet&rs=1',
+    [new Ingredient("Bun",2),
+  new Ingredient("Meat",1),
+  new Ingredient("cheese",10)
+  ]),
+    new Recipe('Pasta','alferedo pasta','https://th.bing.com/th/id/OIP.wteWK2kTyO2Co5GUQO7YJQHaE7?pid=ImgDet&rs=1',
+    [
+      new Ingredient("Pasta",0.5),
+      new Ingredient("Chicken breast",0.4),
+      new Ingredient("Cooking Cream",.5)
+    ])
+  ];
+
+
+  constructor(private shopListService:ShoppingListService){
+
+  }
+  getRecipes(){
+    return this.recipes.slice();
+  }
+
+  addToShoppingList(ingredients:Ingredient[])
+  {
+    this.shopListService.addMultipulIngs(ingredients);
+  }
+
+}
