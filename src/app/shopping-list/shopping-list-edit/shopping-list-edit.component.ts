@@ -22,7 +22,7 @@ constructor(private shoppinglistService:ShoppingListService){
           this.nameInput.nativeElement.value,
           this.amountInput.nativeElement.value
         );
-  this.shoppinglistService.addAnIngerdient(newIngrediendt);
+  this.shoppinglistService.addAnIngredient(newIngrediendt);
 
 
   }
