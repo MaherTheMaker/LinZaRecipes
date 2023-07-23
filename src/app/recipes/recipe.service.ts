@@ -7,21 +7,21 @@ import {Subject} from "rxjs";
 @Injectable()
 export class RecipeService {
   changeRecipesList=new Subject<Recipe[]>();
- private recipes : Recipe[] =[
-    new Recipe("Burger", "The best Burger in Madrid",
-    'https://th.bing.com/th/id/OIP.Xpa7p1XJIYLs4HX5jjkHmwHaGJ?pid=ImgDet&rs=1',
-    [new Ingredient("Bun",2),
-  new Ingredient("Meat",1),
-  new Ingredient("cheese",10)
-  ]),
-    new Recipe('Pasta','Alfredo pasta','https://th.bing.com/th/id/OIP.wteWK2kTyO2Co5GUQO7YJQHaE7?pid=ImgDet&rs=1',
-    [
-      new Ingredient("Pasta",0.5),
-      new Ingredient("Chicken breast",0.4),
-      new Ingredient("Cooking Cream",.5)
-    ])
-  ];
-
+ // private recipes : Recipe[] =[
+ //    new Recipe("Burger", "The best Burger in Madrid",
+ //    'https://th.bing.com/th/id/OIP.Xpa7p1XJIYLs4HX5jjkHmwHaGJ?pid=ImgDet&rs=1',
+ //    [new Ingredient("Bun",2),
+ //  new Ingredient("Meat",1),
+ //  new Ingredient("cheese",10)
+ //  ]),
+ //    new Recipe('Pasta','Alfredo pasta','https://th.bing.com/th/id/OIP.wteWK2kTyO2Co5GUQO7YJQHaE7?pid=ImgDet&rs=1',
+ //    [
+ //      new Ingredient("Pasta",0.5),
+ //      new Ingredient("Chicken breast",0.4),
+ //      new Ingredient("Cooking Cream",.5)
+ //    ])
+ //  ];
+private recipes:Recipe[]=[];
 
   constructor(private shopListService:ShoppingListService){
 
@@ -33,6 +33,12 @@ export class RecipeService {
   }
   updateRecipe(index:number,recipe:Recipe){
     this.recipes[index]=recipe;
+    this.changeRecipesList.next(this.getRecipes());
+
+  }
+  setRecipe(recipes:Recipe[])
+  {
+    this.recipes=recipes;
     this.changeRecipesList.next(this.getRecipes());
 
   }
