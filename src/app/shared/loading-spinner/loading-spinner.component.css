@@ -1,5 +1,6 @@
 .lds-hourglass {
   display: inline-block;
+  top: 30vh;
   position: relative;
   width: 80px;
   height: 80px;
