@@ -46,9 +46,10 @@ export class ShoppingListEditComponent implements OnInit, OnDestroy {
       this.shoppingListService.addAnIngredient(newIngredient);
     } else {
       this.shoppingListService.editAnIngredient(newIngredient, this.editedItemIndex);
-      this.OnResetClick();
 
     }
+    this.OnResetClick();
+
   }
 
   OnResetClick() {

@@ -15,14 +15,16 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <!-- Add a list item for the new sentence -->
-        <li [routerLinkActive]="'active'"><a routerLink="Recipes">Recipes</a></li>
+        <li [routerLinkActive]="'active'" *ngIf="isAuthed"><a routerLink="Recipes">Recipes</a></li>
         <li [routerLinkActive]="'active'"><a routerLink="ShoppingList">Shopping List</a></li>
+        <li [routerLinkActive]="'active'" *ngIf="!isAuthed"><a routerLink="Auth">Authenticate</a></li>
         <li><p class="navbar-text" style="color: pink">Love you LINZA ❤</p></li>
 
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li><a style="cursor: pointer" *ngIf="isAuthed" (click)="logout()">Logout</a></li>
         <li class="dropdown" appDropdown>
-          <a style="cursor: pointer" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
+          <a style="cursor: pointer" *ngIf="isAuthed" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a style="cursor: pointer" (click)="onSaveData()">Save Data</a></li>
             <li><a style="cursor: pointer" (click)="onFetchData()">Fetch Data</a></li>

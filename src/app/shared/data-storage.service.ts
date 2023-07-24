@@ -20,7 +20,6 @@ export class DataStorageService {
       'https://linzarecipes-default-rtdb.europe-west1.firebasedatabase.app/recipes.json'
       , recipes
     ).subscribe(resp => {
-      console.log(resp);
     });
 
   }

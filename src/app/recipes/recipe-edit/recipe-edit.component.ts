@@ -82,7 +82,7 @@ export class RecipeEditComponent implements OnInit {
       value['ingredients'])
     if (this.editMode) {
       // this.recipeService.updateRecipe(this.id,this.recipeForm.value);
-      console.log(newRecipe);
+
       this.recipeService.updateRecipe(this.id,newRecipe);
       this.editMode=false;
 
